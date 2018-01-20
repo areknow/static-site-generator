@@ -1,7 +1,8 @@
 (function() {
 
   $(function() {
-    console.log('doc ready')
+    console.log('main.js')
   })
-  
+
 })();
+
