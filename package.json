@@ -4,7 +4,8 @@
   "description": "Simple dev template using light-server, gulp, and sass",
   "main": "index.js",
   "scripts": {
-    "start": "light-server -s . -p 6969 -w 'index.html' -w '_sass/**/**.scss # gulp styles' -w '_js/**.js # gulp scripts' "
+    "start": "light-server -s . -p 6969 -w 'index.html' -w '_sass/**/**.scss # gulp styles' -w '_js/**.js # gulp scripts' ",
+    "dist": "gulp dist"
   },
   "author": "Arnaud P. Crowther",
   "license": "ISC",
