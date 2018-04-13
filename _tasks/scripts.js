@@ -1,12 +1,11 @@
 'use strict';
- 
-var gulp = require('gulp');
-var minify = require('gulp-minify');
-var concat = require('gulp-concat');
+
+const gulp = require('gulp');
+const minify = require('gulp-minify');
+const concat = require('gulp-concat');
 
 gulp.task('scripts', function () {
   gulp.src('./_js/**.js')
-    .pipe(concat('main.js'))
     .pipe(minify({
       ext: {
         min: '.min.js'
@@ -15,5 +14,5 @@ gulp.task('scripts', function () {
       ignoreFiles: ['.combo.js', '-min.js'],
       noSource: true
     }))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./dist/assets/js'))
 });

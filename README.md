@@ -1,2 +1,13 @@
-# dev-stack
-Mini dev stack with light-server, gulp, sass, and some templates
+# Decarolis website #
+
+Homepage for Decarolis Dental
+
+##### Quickstart
+
+```bash
+$ yarn # install dependencies 
+$ yarn run dev # start development server
+$ yarn build # create build artifacts
+```
+
+Navigate to [http://localhost:6969](http://localhost:6969) to access the site

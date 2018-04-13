@@ -1,21 +1,23 @@
 {
-  "name": "a1-light-server-gulp-sass",
+  "name": "decarolis-dental",
   "version": "1.0.0",
-  "description": "Simple dev template using light-server, gulp, and sass",
+  "description": "Decarolis dental website",
   "main": "index.js",
   "scripts": {
-    "start": "light-server -s . -p 6969 -w 'index.html' -w '_sass/**/**.scss # gulp styles' -w '_js/**.js # gulp scripts' ",
-    "dist": "gulp dist"
+    "dev": "gulp build && light-server -s dist -p 6969 -w '_src/** # gulp hbs' -w '_partials/** # gulp hbs' -w '_sass/**/**.scss # gulp styles' -w '_js/**.js # gulp scripts' -w '_assets/** # gulp assets' ",
+    "build": "gulp build"
   },
   "author": "Arnaud P. Crowther",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
+    "gulp-hb": "^7.0.1",
     "gulp-minify": "^2.1.0",
     "gulp-sass": "^3.1.0",
     "gulp-sequence": "^1.0.0",
+    "gulp-zip": "^4.1.0",
     "light-server": "^2.2.1",
     "require-dir": "^0.3.2"
   }

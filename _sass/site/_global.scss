@@ -6,10 +6,14 @@ html {
   line-height: initial;
 }
 body {
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   color: #3a3a3a;
   font-size: 14px;
-  font-family: XXX, "Open Sans", sans-serif;
+  font-family: 'TruenoRegular'; 
+  font-weight: normal; 
+  font-style: normal; 
+  padding: 0;
+  margin: 0;
 }
 
 .col-wrapper {
@@ -20,7 +24,7 @@ body {
     vertical-align: top; 
   }
   .one    { width: 8.3333333333%; }
-  .two    { width: 16.6666666666; }
+  .two    { width: 16.6666666666%; }
   .three  { width: 24.9999999999%; }
   .four   { width: 33.3333333333%; }
   .five   { width: 41.6666666665%; }
@@ -49,7 +53,7 @@ body {
   vertical-align: middle;
 }
 .page-column {
-  max-width: 1200px;
+  max-width: 1170px;
   margin: auto;
 }
 .float-right {
@@ -57,4 +61,13 @@ body {
 }
 .float-left {
   float: left;
+}
+
+
+// Demo
+
+h1 {
+  text-align: center;
+  margin: 0;
+  margin-top: 100px;
 }
