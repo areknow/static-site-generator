@@ -1,6 +1,6 @@
-# Decarolis website #
+# dev-stack #
 
-Homepage for Decarolis Dental
+Static site template with SASS, Handlebars, Routes and Gulp
 
 ##### Quickstart
 
