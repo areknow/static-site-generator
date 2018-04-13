@@ -1,6 +1,6 @@
 # dev-stack #
 
-Static site template with SASS, Handlebars, Routes and Gulp
+Static site generator with SASS, Handlebars, Routes and Gulp
 
 ##### Quickstart
 
