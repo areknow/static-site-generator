@@ -4,7 +4,7 @@
   "description": "Static site generator with Sass, Handlebars, Routes and Gulp",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp build && light-server -s dist -p 6969 -w '_src/** # gulp hbs' -w '_partials/** # gulp hbs' -w '_sass/**/**.scss # gulp styles' -w '_js/**.js # gulp scripts' -w '_assets/** # gulp assets' ",
+    "dev": "gulp build && light-server -s dist -p 6969 -w '_src/**/**.html # gulp hbs' -w '_partials/**.hbs # gulp hbs' -w '_sass/**/**.scss # gulp styles' -w '_js/**.js # gulp scripts' ",
     "build": "gulp build"
   },
   "author": "Arnaud P. Crowther",
