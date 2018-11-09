@@ -13,5 +13,10 @@ nav {
         }
       }
     }
+    li.active {
+      a {
+        opacity: 1;
+      }
+    }
   }
 }

@@ -43,6 +43,7 @@
   // ============================================
   function activeNavLink() {
     var bodyClass = $('body').attr("id");
+    
     $( "nav .menu li" ).each(function() {
       if ($(this).attr('data-page') === bodyClass) {
         $(this).addClass('active');
