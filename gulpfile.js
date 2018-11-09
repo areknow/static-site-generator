@@ -72,7 +72,7 @@ function hbsRoot() {
   return gulp
     .src('./_src/index.hbs')
     .pipe(frontMatter({
-      property: 'data.pageData',
+      property: 'data.page',
       remove: true
     }))
     .pipe(hb()
@@ -95,7 +95,7 @@ function hbsDirs() {
   return gulp
     .src(files)
     .pipe(frontMatter({
-      property: 'data.pageData',
+      property: 'data.page',
       remove: true
     }))
     .pipe(hb()
@@ -135,6 +135,7 @@ function watchFiles() {
   gulp.watch("./_js/**/*", scripts);
   gulp.watch("./_data/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_partials/**/*", gulp.series('hbs', browserSyncReload));
+  gulp.watch("./_layouts/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_src/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_assets/**/*", gulp.series(clearAssets, assets, browserSyncReload));
 }
