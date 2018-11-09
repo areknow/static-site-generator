@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>dev-stack | {{pageData.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Arnaud P. Crowther">
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="stylesheet" href="https://fontlibrary.org/face/trueno" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/assets/css/main.min.css" type="text/css"/>
+  </head>
+
+  <body id="home">
+
+    {{> page-loader}}
+
+    {{> nav}}
+
+    <main>
+      {{{ block "content" }}}
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="/assets/js/common.min.js" type="text/javascript"></script>
+    <script src="/assets/js/home.min.js" type="text/javascript"></script>
+  </body>
+</html>

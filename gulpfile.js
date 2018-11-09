@@ -12,6 +12,7 @@ const htmlmin = require('gulp-htmlmin');
 const zip = require('gulp-zip');
 const browsersync = require("browser-sync").create();
 const del = require("del");
+var frontMatter = require('gulp-front-matter');
 
 
 // ===============================
@@ -69,12 +70,19 @@ function styles() {
 // ===============================
 function hbsRoot() {
   return gulp
-    .src('./_src/index.html')
+    .src('./_src/index.hbs')
+    .pipe(frontMatter({
+      property: 'data.pageData',
+      remove: true
+    }))
     .pipe(hb()
       .partials('./_partials/*.hbs')
+      .partials('./_layouts/*.hbs')
+      .helpers(require('handlebars-layouts'))
       .data('./_data/**/*.{js,json}')
     )
     .pipe(htmlmin({ collapseWhitespace: true, minifyJS: true }))
+    .pipe(rename({ extname: ".html" }))
     .pipe(gulp.dest('./dist'));
 }
 
@@ -86,8 +94,14 @@ function hbsDirs() {
   var files = ['./_src/*', '!./_src/index.html'];
   return gulp
     .src(files)
+    .pipe(frontMatter({
+      property: 'data.pageData',
+      remove: true
+    }))
     .pipe(hb()
       .partials('./_partials/*.hbs')
+      .partials('./_layouts/*.hbs')
+      .helpers(require('handlebars-layouts'))
       .data('./_data/**/*.{js,json}')
     )
     .pipe(tap(function(file) { 
@@ -100,6 +114,7 @@ function hbsDirs() {
       file.basename = 'index';
     }))
     .pipe(htmlmin({ collapseWhitespace: true, minifyJS: true }))
+    .pipe(rename({ extname: ".html" }))
     .pipe(gulp.dest('./dist'));
 }
 
