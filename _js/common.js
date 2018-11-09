@@ -42,7 +42,7 @@
   // Use body ID to match to active nav link
   // ============================================
   function activeNavLink() {
-    let bodyClass = $('body').attr("id");
+    var bodyClass = $('body').attr("id");
     $( "nav .menu li" ).each(function() {
       if ($(this).attr('data-page') === bodyClass) {
         $(this).addClass('active');
