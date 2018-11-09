@@ -91,7 +91,7 @@ function hbsRoot() {
 // ===============================
 function hbsDirs() {
   var currentFile;
-  var files = ['./_src/*', '!./_src/index.html'];
+  var files = ['./_src/*', '!./_src/index.hbs'];
   return gulp
     .src(files)
     .pipe(frontMatter({
