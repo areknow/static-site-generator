@@ -1,18 +1,18 @@
 'use strict';
 
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const concat = require('gulp-concat');
-const cleanCSS = require('gulp-clean-css');
-const uglify = require('gulp-uglify');
-const hb = require('gulp-hb');
-const rename = require("gulp-rename");
-const tap = require('gulp-tap');
-const htmlmin = require('gulp-htmlmin');
-const zip = require('gulp-zip');
 const browsersync = require("browser-sync").create();
+const cleanCSS = require('gulp-clean-css');
+const concat = require('gulp-concat');
 const del = require("del");
-var frontMatter = require('gulp-front-matter');
+const frontMatter = require('gulp-front-matter');
+const gulp = require('gulp');
+const hb = require('gulp-hb');
+const htmlmin = require('gulp-htmlmin');
+const rename = require("gulp-rename");
+const sass = require('gulp-sass');
+const tap = require('gulp-tap');
+const uglify = require('gulp-uglify');
+const zip = require('gulp-zip');
 
 
 // ===============================
