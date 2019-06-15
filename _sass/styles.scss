@@ -3,9 +3,9 @@
 @import "site/global";
 
 // Partials
-@import "site/page-loader";
-@import "site/nav";
+@import "site/partials/page-loader";
+@import "site/partials/nav";
 
 // Pages
-@import "site/home";
-@import "site/about";
+@import "site/pages/home";
+@import "site/pages/about";
