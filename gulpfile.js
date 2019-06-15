@@ -21,6 +21,7 @@ const zip = require('gulp-zip');
 function browserSync(done) {
   browsersync.init({
     open: false,
+    ghostMode: false,
     server: { baseDir: './dist/' },
     port: 3000
   });
@@ -70,7 +71,7 @@ function styles() {
 // ===============================
 function hbsRoot() {
   return gulp
-    .src('./_src/index.hbs')
+    .src('./_pages/index.hbs')
     .pipe(frontMatter({
       property: 'data.page',
       remove: true
@@ -91,7 +92,7 @@ function hbsRoot() {
 // ===============================
 function hbsDirs() {
   var currentFile;
-  var files = ['./_src/*', '!./_src/index.hbs'];
+  var files = ['./_pages/*', '!./_pages/index.hbs'];
   return gulp
     .src(files)
     .pipe(frontMatter({
@@ -136,7 +137,7 @@ function watchFiles() {
   gulp.watch("./_data/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_partials/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_layouts/**/*", gulp.series('hbs', browserSyncReload));
-  gulp.watch("./_src/**/*", gulp.series('hbs', browserSyncReload));
+  gulp.watch("./_pages/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_assets/**/*", gulp.series(clearAssets, assets, browserSyncReload));
 }
 
