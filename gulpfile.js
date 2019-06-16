@@ -58,7 +58,7 @@ function scripts() {
 // Styles
 // ===============================
 function styles() {
-  return gulp.src('./_sass/*.scss')
+  return gulp.src('./_scss/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(concat('main.min.css'))
@@ -132,7 +132,7 @@ function bundle() {
 // Watch
 // ===============================
 function watchFiles() {
-  gulp.watch("./_sass/**/*", styles);
+  gulp.watch("./_scss/**/*", styles);
   gulp.watch("./_js/**/*", scripts);
   gulp.watch("./_data/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_partials/**/*", gulp.series('hbs', browserSyncReload));
