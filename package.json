@@ -10,7 +10,7 @@
   "author": "Arnaud P. Crowther",
   "license": "ISC",
   "dependencies": {
-    "assign-deep": "^1.0.0",
+    "assign-deep": "^1.0.1",
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
