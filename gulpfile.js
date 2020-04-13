@@ -11,8 +11,10 @@ const htmlmin = require('gulp-htmlmin');
 const rename = require("gulp-rename");
 const sass = require('gulp-sass');
 const tap = require('gulp-tap');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const zip = require('gulp-zip');
+const ts = require('gulp-typescript')
+const tsProject = ts.createProject('tsconfig.json');
 
 
 // ===============================
@@ -33,6 +35,14 @@ function browserSyncReload(done) {
 }
 
 // ===============================
+// Require JS config
+// ===============================
+function requireJs() {
+  return gulp.src('require.config.js')
+    .pipe(gulp.dest('./dist/assets/js'))
+}
+
+// ===============================
 // Assets
 // ===============================
 function assets() {
@@ -47,11 +57,22 @@ function clearAssets() {
 // Scripts
 // ===============================
 function scripts() {
-  return gulp.src('./_js/**.js')
+  const tsResult = tsProject.src()
+    .pipe(tsProject());
+  return tsResult.js.pipe(gulp.dest('./dist/assets/js'));
+}
+
+// ===============================
+// Minify js
+// ===============================
+function minify() {
+  return gulp.src([
+      './dist/assets/js/**.js',
+      '!./dist/assets/js/**.min.js'
+    ])
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('./dist/assets/js'))
-    .pipe(browsersync.stream());
+    .pipe(gulp.dest('./dist/assets/js'));
 }
 
 // ===============================
@@ -133,7 +154,7 @@ function bundle() {
 // ===============================
 function watchFiles() {
   gulp.watch("./_scss/**/*", styles);
-  gulp.watch("./_js/**/*", scripts);
+  gulp.watch("./_ts/**/*", gulp.series('scripts', 'minify', browserSyncReload));
   gulp.watch("./_data/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_partials/**/*", gulp.series('hbs', browserSyncReload));
   gulp.watch("./_layouts/**/*", gulp.series('hbs', browserSyncReload));
@@ -145,13 +166,15 @@ function watchFiles() {
 // ===============================
 // Definitions and tasks
 // ===============================
+gulp.task('require-js', requireJs);
 gulp.task('assets', assets);
 gulp.task('bundle', bundle);
+gulp.task('minify', minify);
 gulp.task('scripts', scripts);
 gulp.task('styles', styles);
 gulp.task('hbs-root', hbsRoot);
 gulp.task('hbs-dirs', hbsDirs);
 gulp.task('hbs', gulp.series('hbs-root', 'hbs-dirs'));
 
-gulp.task('build', gulp.series('scripts', 'styles', 'hbs', 'assets'));
+gulp.task('build', gulp.series('require-js', gulp.series('scripts', 'minify'), 'styles', 'hbs', 'assets'));
 gulp.task('watch', gulp.series('build', gulp.parallel(watchFiles, browserSync)));
