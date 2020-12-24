@@ -1,4 +1,4 @@
-# dev-stack #
+# static-site-generator #
 
 Static site generator with Sass, Handlebars, Routes and Gulp
 
